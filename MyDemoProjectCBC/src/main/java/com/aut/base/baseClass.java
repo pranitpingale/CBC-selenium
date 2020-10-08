@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeTest;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BaseClass {
+public class baseClass {
 	public static Properties prop;
 	public static WebDriver driver;
 	
