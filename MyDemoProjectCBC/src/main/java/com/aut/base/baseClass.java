@@ -9,15 +9,14 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.BeforeTest;
+
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class baseClass {
 	public static Properties prop;
-	public static WebDriver driver;
+	public WebDriver driver;
 	
-	@BeforeTest
 	public void loadConfig() {
 		try {
 			prop = new Properties();
@@ -34,9 +33,10 @@ public class baseClass {
 	}
 	}
 	
-	public static void launchapp() {
+	public void launchapp() throws Exception, IOException {
 		WebDriverManager.chromedriver().setup();
 		String browserName = prop.getProperty("browser");
+		System.out.println(browserName);
 		if(browserName.contains("Chrome")) {
 			driver = new ChromeDriver();
 			
@@ -47,6 +47,7 @@ public class baseClass {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		driver.get(prop.getProperty("url"));
 	}
 	
 	}

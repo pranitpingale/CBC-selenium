@@ -11,19 +11,10 @@ import org.testng.annotations.Test;
 
 import com.aut.base.baseClass;
 import com.aut.pageobjects.LoginPage;
-import com.aut.utilities.excelUtil;
 
-
-public class loginTestCase extends baseClass  {
+public class loginTest_DataProvider extends baseClass  {
 	LoginPage loginPage;
 
-  
-  @DataProvider
-  public Object[][] getLoginData(){
-	   
-	   Object data [][] = excelUtil.getTestData("LOGIN");
-	   return data;
-	   }
    
   @BeforeMethod(alwaysRun=true)
   
@@ -32,9 +23,22 @@ public class loginTestCase extends baseClass  {
 	 launchapp();
 	 loginPage = new LoginPage();
   }
+  
+  @DataProvider(name = "testData")	
+  public Object[][] getData()
+  {
+  Object[][] data = new Object[1][2];
+	  
+  data[0][0]="seleniumTest123@gmail.com";
+  data[0][1]="test123123";
+	  
+  return data;    
+
+  }
  
-  @Test(dataProvider = "getLoginData")	
+  @Test(dataProvider = "testData")	
   public void loginTest(String username, String password){
+	  System.out.println(username+ "-"+password );
 	  
   LoginPage page =PageFactory.initElements(driver, LoginPage.class);
 	

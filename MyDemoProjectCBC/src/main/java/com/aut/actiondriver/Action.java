@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import com.aut.base.BaseClass;
+import com.aut.base.baseClass;
 
-public class Action extends BaseClass{
+public class Action extends baseClass{
 	
 public static void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
 	JavascriptExecutor js = (JavascriptExecutor) driver;
