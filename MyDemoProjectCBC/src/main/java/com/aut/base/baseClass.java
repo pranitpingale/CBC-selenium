@@ -1,21 +1,39 @@
 package com.aut.base;
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
+import com.aut.utilities.Log4J;
+import com.aut.utility.Log;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class baseClass {
 	public static Properties prop;
 	public WebDriver driver;
+	
+	@BeforeSuite
+	public void beforeSuite() {
+		DOMConfigurator.configure("log4j.xml");
+		Log4J.info("This is before suite method");
+		
+	}
+	
+	@AfterSuite
+	public void afterSuite() {
+		
+		Log4J.info("This is after  suite method");
+		
+	}
 	
 	public void loadConfig() {
 		try {

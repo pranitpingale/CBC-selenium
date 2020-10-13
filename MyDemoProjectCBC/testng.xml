@@ -4,6 +4,10 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="com.aut.testCase.loginTestCase"/>
+      <class name="com.aut.testCase.loginTest_DataProvider"/>
+      <class name="com.aut.testCase.TestClassLogger"/>
+      <class name="com.aut.base.baseClass"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
